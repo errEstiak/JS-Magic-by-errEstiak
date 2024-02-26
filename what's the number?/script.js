@@ -44,4 +44,24 @@ function validateGuess(guess) {
   }
 }
 
-
+function checkGuess(guess) {
+    if (guess === randomNumber) {
+      displayMessage(`You guessed it right`);
+      endGame();
+    } else if (guess < randomNumber) {
+      displayMessage(`Number is TOOO low`);
+    } else if (guess > randomNumber) {
+      displayMessage(`Number is TOOO High`);
+    }
+  }
+  
+  function displayGuess(guess) {
+    userInput.value = '';
+    guessSlot.innerHTML += `${guess}, `;
+    numGuess++;
+    remaining.innerHTML = `${11 - numGuess} `;
+  }
+  
+  function displayMessage(message) {
+    lowOrHi.innerHTML = `<h2>${message}</h2>`;
+  }
